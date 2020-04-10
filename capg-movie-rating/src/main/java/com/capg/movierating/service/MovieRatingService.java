@@ -13,10 +13,10 @@ public class MovieRatingService {
 	
 	
     @Autowired
-	MovieRatingRepo  movieRatingDao;
+	MovieRatingRepo  movieRatingRepo;
     
 	public MovieRating getMovieRatingById(int id){
 		
-		return movieRatingDao.findById(id).get();
+		return movieRatingRepo.findById(id).get();
 	}
 }
