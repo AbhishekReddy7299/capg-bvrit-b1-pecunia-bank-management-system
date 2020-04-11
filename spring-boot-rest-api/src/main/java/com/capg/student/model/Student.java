@@ -1,4 +1,4 @@
-package com.capg.springboot.model;
+package com.capg.student.model;
 
 import java.time.LocalDate;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.capg.springboot;
+package com.capg.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

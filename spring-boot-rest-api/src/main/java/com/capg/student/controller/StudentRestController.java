@@ -1,4 +1,4 @@
-package com.capg.springboot.controller;
+package com.capg.student.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.capg.springboot.model.Student;
-import com.capg.springboot.service.StudentService;
+import com.capg.student.model.Student;
+import com.capg.student.service.StudentService;
 
 @RestController
 @RequestMapping("/api")

@@ -1,6 +1,6 @@
 
 
-package com.capg.springboot.repository;
+package com.capg.student.repository;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.capg.springboot.model.Student;
+import com.capg.student.model.Student;
 
 @Repository
 public class StudentRepo {
