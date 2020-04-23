@@ -1,4 +1,4 @@
-package com.capg.pbms.updateDelete;
+package com.capg.pbms.updateanddelete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

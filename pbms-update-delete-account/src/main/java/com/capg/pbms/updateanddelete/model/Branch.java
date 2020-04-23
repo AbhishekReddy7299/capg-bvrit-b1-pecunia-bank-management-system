@@ -1,4 +1,4 @@
-package com.capg.pbms.updateDelete.model;
+package com.capg.pbms.updateanddelete.model;
 
 public class Branch {
 	private String branchId;
