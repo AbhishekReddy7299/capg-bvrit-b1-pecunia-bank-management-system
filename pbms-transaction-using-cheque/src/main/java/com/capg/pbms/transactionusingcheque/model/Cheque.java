@@ -1,4 +1,4 @@
-package com.capg.pbms.transactioncheque.model;
+package com.capg.pbms.transactionusingcheque.model;
 
 import java.time.LocalDate;
 
