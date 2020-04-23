@@ -1,8 +1,12 @@
-package com.capg.pbms.transactionUsingCheque.model;
+package com.capg.pbms.transactioncheque.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Customer {
+	@Id
 	private String customerId;
 	private String customerName;
 	private Address customerAddress;

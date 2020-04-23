@@ -1,6 +1,11 @@
-package com.capg.pbms.transactionUsingCheque.model;
+package com.capg.pbms.transactioncheque.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
+	@Id
 	private String addressId;
 	private String addressLine1;
 	private String addressLine2;

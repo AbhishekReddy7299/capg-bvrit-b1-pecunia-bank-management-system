@@ -1,4 +1,4 @@
-package com.capg.pbms.transactionUsingCheque;
+package com.capg.pbms.transactioncheque;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

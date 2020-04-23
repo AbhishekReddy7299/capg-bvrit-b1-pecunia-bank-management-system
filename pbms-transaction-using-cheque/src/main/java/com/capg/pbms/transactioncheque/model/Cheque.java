@@ -1,8 +1,12 @@
-package com.capg.pbms.transactionUsingCheque.model;
+package com.capg.pbms.transactioncheque.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Cheque {
+	@Id
 	private String chequeId;
 	private int chequeNum;
 	private String chequeAccountNo;
@@ -71,5 +75,6 @@ public class Cheque {
 	public void setChequeStatus(String chequeStatus) {
 		this.chequeStatus = chequeStatus;
 	}
-	
+
+	 	
 }

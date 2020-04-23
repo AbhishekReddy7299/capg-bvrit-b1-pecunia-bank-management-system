@@ -1,8 +1,12 @@
-package com.capg.pbms.transactionUsingCheque.model;
+package com.capg.pbms.transactioncheque.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Transaction {
+	@Id
 	private String transAccountId;
 	private String transType;
 	private double transAmount;
@@ -12,6 +16,7 @@ public class Transaction {
 	private String transFrom;
 	private String transTo;
 	private double transClosingBalance;
+	
 	public Transaction(String transAccountId, String transType, double transAmount, String transOption,
 			LocalDate transDate, String transChequeId, String transFrom, String transTo, double transClosingBalance) {
 		super();
