@@ -1,12 +1,8 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-@Entity
 public class Ledger {
-	@Id
 	private String ledgerId;
 	private LocalDate ledgerDate;
 	private double ledgerDebitAmount;

@@ -1,12 +1,8 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-@Entity
 public class Customer {
-	@Id
 	private String customerId;
 	private String customerName;
 	private Address customerAddress;
@@ -116,5 +112,4 @@ public class Customer {
 	}
 
 
-	 
 }

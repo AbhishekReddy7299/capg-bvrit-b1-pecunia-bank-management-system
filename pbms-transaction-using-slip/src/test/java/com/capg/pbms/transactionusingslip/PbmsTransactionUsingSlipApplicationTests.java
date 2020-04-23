@@ -1,4 +1,4 @@
-package com.capg.pbms.transaactionusingslip;
+package com.capg.pbms.transactionusingslip;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

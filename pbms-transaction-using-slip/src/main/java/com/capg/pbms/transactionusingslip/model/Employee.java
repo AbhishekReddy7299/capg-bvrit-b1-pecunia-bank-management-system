@@ -1,11 +1,6 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Employee {
-	@Id
 	private String employeeId;
 	private String employeeName;
 	private String employeeBranchId;
@@ -121,6 +116,4 @@ public class Employee {
 				+ ", employeePassword=" + employeePassword + "]";
 	}
 	
-
-
 }
