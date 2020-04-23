@@ -1,4 +1,4 @@
-package com.capg.pbms.transactionUsingSlip.model;
+package com.capg.pbms.transaactionusingslip.model;
 
 import java.time.LocalDate;
 

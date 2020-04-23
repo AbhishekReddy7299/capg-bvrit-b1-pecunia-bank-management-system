@@ -1,4 +1,4 @@
-package com.capg.pbms.transactionUsingSlip.model;
+package com.capg.pbms.transaactionusingslip.model;
 
 public class LoanRequest {
 	private String loanRequestId;
