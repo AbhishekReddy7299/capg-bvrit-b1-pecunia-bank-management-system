@@ -1,13 +1,13 @@
-package com.capg.pbms.transactionusingcheque;
+package com.capg.pbms.transactionusingslip;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PbmsTransactionUsingChequeApplication {
+public class PbmsTransactionUsingSlipApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PbmsTransactionUsingChequeApplication.class, args);
+		SpringApplication.run(PbmsTransactionUsingSlipApplication.class, args);
 	}
 
 }

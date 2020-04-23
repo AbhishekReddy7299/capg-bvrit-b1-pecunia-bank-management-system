@@ -1,12 +1,8 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-@Entity
 public class AccountManagement {
-	@Id
 	private String accountId;
 	private String accountHolderId;
 	private String accountBranchId;
@@ -77,5 +73,5 @@ public class AccountManagement {
 	public void setLastUpdated(LocalDate lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
-	 
+
 }

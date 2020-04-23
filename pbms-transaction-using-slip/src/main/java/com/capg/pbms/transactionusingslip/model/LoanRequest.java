@@ -1,11 +1,6 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class LoanRequest {
-	@Id
 	private String loanRequestId;
 	private String loanCustomerId;
 	private Double loanAmount;
@@ -69,5 +64,4 @@ public class LoanRequest {
 	public void setCreditScore(int creditScore) {
 		CreditScore = creditScore;
 	}
-	
 }

@@ -1,12 +1,8 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionusingslip.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-@Entity
 public class Cheque {
-	@Id
 	private String chequeId;
 	private int chequeNum;
 	private String chequeAccountNo;
@@ -75,6 +71,4 @@ public class Cheque {
 	public void setChequeStatus(String chequeStatus) {
 		this.chequeStatus = chequeStatus;
 	}
-
-	 	
 }
