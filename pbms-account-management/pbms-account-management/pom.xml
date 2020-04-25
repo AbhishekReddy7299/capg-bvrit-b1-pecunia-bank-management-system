@@ -8,17 +8,21 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.capg</groupId>
-	<artifactId>spring-boot-rest-api</artifactId>
+	<groupId>com.capg.pbms</groupId>
+	<artifactId>pbms-account-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-rest-api</name>
-	<description>Demo project for Spring Boot</description>
+	<name>pbms-account-management</name>
+	<description>adding Updating and deleting account-pbms</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -29,6 +33,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
