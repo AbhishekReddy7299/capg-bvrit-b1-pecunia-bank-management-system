@@ -1,12 +1,10 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionms.model;
 
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 @Entity
-@Table(name="Account")
 public class AccountManagement {
 	@Id
 	private String accountId;

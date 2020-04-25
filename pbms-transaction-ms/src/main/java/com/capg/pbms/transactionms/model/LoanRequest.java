@@ -1,6 +1,11 @@
-package com.capg.pbms.transactionusingcheque.model;
+package com.capg.pbms.transactionms.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class LoanRequest {
+	@Id
 	private String loanRequestId;
 	private String loanCustomerId;
 	private double loanAmount;
