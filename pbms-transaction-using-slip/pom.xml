@@ -8,7 +8,7 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.capg.pbms.transactionUsingSlip</groupId>
+	<groupId>com.capg.pbms.transactionusingslip</groupId>
 	<artifactId>pbms-transaction-using-slip</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pbms-transaction-using-slip</name>
@@ -19,7 +19,6 @@
 	</properties>
 
 	<dependencies>
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
