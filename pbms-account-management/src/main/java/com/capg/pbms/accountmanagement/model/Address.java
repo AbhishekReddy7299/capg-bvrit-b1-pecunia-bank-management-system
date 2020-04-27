@@ -2,8 +2,11 @@ package com.capg.pbms.accountmanagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Address_info")
 public class Address {
 	@Id
 	private String addressId;
@@ -13,6 +16,8 @@ public class Address {
 	private String addressState;
 	private String addressCountry;
 	private String addressZipcode;
+	@OneToOne
+	private Customer customer;
 	
 	public String getAddressId() {
 		return addressId;

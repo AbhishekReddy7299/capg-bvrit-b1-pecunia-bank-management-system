@@ -1,16 +1,22 @@
 package com.capg.pbms.accountmanagement.model;
-
 import java.time.LocalDate;
-
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Table(name="Customers")
 public class Customer {
 	@Id
+	@Column(name="customerId")
 	private String customerId;
 	private String customerName;
+	@OneToOne(mappedBy="customer",cascade = CascadeType.ALL)
 	private Address customerAddress;
 	private String customerAadhar;
 	private String customerPan;
