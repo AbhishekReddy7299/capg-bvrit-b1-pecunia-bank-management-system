@@ -13,7 +13,9 @@ public interface IAccountService {
 	 
 	 Customer updateCustomer(Customer customer);
 	 
-	 Customer deleteCustomer(String customerId);
+	 boolean deleteCustomer(String customerId);
+
+	
 
 
 }
