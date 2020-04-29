@@ -14,38 +14,57 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capg.pbms.accountmanagement.model.AccountManagement;
 import com.capg.pbms.accountmanagement.model.Customer;
-import com.capg.pbms.accountmanagement.service.IAccountService;
+import com.capg.pbms.accountmanagement.service.IAccountManagementService;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/api")
 public class AccountRepoController {
 	
 	@Autowired(required=false)
-	IAccountService service;
-	@PostMapping("/add")
-	public ResponseEntity<Customer> addPassenger(@RequestBody Customer customer)
+	IAccountManagementService service;
+	@PostMapping("/addcustomer/id/{accountId}")
+	public Customer addCustomer(@PathVariable ("accountId") String accountId,@RequestBody Customer customer)
 	{
-	   	return new ResponseEntity<Customer>(service.addCustomer(customer),HttpStatus.OK);
+	   	return service.addCustomer(accountId,customer);
+	}
+	@PostMapping("/account")
+	public AccountManagement addAccount(@RequestBody AccountManagement account){
+		 return service.addAccount(account);
+		//return new ResponseEntity<AccountManagement>(account,HttpStatus.CREATED);
 	}
 	@GetMapping("/id/{customerId}")
-	public ResponseEntity<Customer> getCustomer(@PathVariable("customerId") String customerId)
-	{	
-		return new ResponseEntity<Customer>(service.getCustomer(customerId),HttpStatus.OK); 		
+	public Customer getCustomer(@PathVariable("customerId") String customerId)
+	{	return service.getCustomer(customerId);
+		//return new ResponseEntity<Customer>(service.getCustomer(customerId),HttpStatus.OK); 		
     }
-	@GetMapping("/all")
-	public ResponseEntity<List<Customer>> getAllCustomer()
+	
+//	@GetMapping("/id/{customerId}")
+//	public Customer getAddress(@PathVariable("customerId") String customerId)
+//	{	return service.getCustomer(customerId);
+//		//return new ResponseEntity<Customer>(service.getCustomer(customerId),HttpStatus.OK); 		
+//    }
+	
+	@PutMapping("/updateName")
+	public ResponseEntity<Customer> updateCustomerName(@RequestBody Customer customer)
 	{
-		return new ResponseEntity<List<Customer>>(service.getAllCustomer(),HttpStatus.OK);
+		   return new ResponseEntity<Customer>(service.updateCustomerName(customer),HttpStatus.OK);
 	}
-	@PutMapping("/update")
-	public ResponseEntity<Customer> updatePassenger(@RequestBody Customer customer)
+
+	@PutMapping("/updateContact")
+	public ResponseEntity<Customer> updateCustomerContact(@RequestBody Customer customer)
 	{
-		   return new ResponseEntity<Customer>(service.updateCustomer(customer),HttpStatus.OK);
+		   return new ResponseEntity<Customer>(service.updateCustomerName(customer),HttpStatus.OK);
+	}
+	@PutMapping("/updateAddress")
+	public ResponseEntity<Customer> updateCustomerAddress(@RequestBody Customer customer)
+	{
+		   return new ResponseEntity<Customer>(service.updateCustomerName(customer),HttpStatus.OK);
 	}
 	@DeleteMapping("/delete/id/{customerId}")
-    public ResponseEntity<Customer> deleteCustomer(@PathVariable("customerId") String customerId)
+    public boolean deleteCustomer(@PathVariable("customerId") String customerId)
     {
-		return new ResponseEntity<Customer>(HttpStatus.OK);
+		return service.deleteCustomer(customerId);
     }
 }
