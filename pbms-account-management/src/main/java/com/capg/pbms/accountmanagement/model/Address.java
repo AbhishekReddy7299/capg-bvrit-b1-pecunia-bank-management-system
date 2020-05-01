@@ -1,7 +1,10 @@
 package com.capg.pbms.accountmanagement.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "Add_info")
 public class Address {
 	@Id
+	@Column(name =  "addressId")
 	private String addressId;
 	private String addressLine1;
 	private String addressLine2;
@@ -18,6 +22,10 @@ public class Address {
 	private String addressState;
 	private String addressCountry;
 	private String addressZipcode;
+	
+	@OneToOne
+	@JoinColumn(name = "accountId")
+	private Customer customer;
 	
 	public String getAddressId() {
 		return addressId;

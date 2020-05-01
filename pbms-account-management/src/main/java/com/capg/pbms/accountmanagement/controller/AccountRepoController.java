@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.capg.pbms.accountmanagement.model.AccountManagement;
+import com.capg.pbms.accountmanagement.model.Customer;
 import com.capg.pbms.accountmanagement.service.IAccountManagementService;
 
 @RestController
@@ -23,19 +23,31 @@ public class AccountRepoController {
 	@Autowired(required=false)
 	IAccountManagementService service;
 	@PostMapping("/add")
-	public ResponseEntity<AccountManagement> addAccount(@RequestBody AccountManagement account){
-		return new ResponseEntity<AccountManagement>(account,HttpStatus.CREATED);
+	public ResponseEntity<Customer> addAccount(@RequestBody Customer customer){
+		return new ResponseEntity<Customer>(customer,HttpStatus.CREATED);
 	}
 	@GetMapping("/id/{accountId}")
-	public ResponseEntity<AccountManagement> getAccount(@PathVariable("accountId") long accountId)
+	public ResponseEntity<Customer> getAccount(@PathVariable("accountId") long accountId)
 	{	
-		return new ResponseEntity<AccountManagement>(service.getAccount(accountId),HttpStatus.OK); 		
+		return new ResponseEntity<Customer>(service.getAccount(accountId),HttpStatus.OK); 		
     }
 	
 	@PutMapping("/updateName")
-	public ResponseEntity<AccountManagement> updateCustomerName(@RequestBody AccountManagement account)
+	public ResponseEntity<Customer> updateCustomerName(@RequestBody Customer customer)
 	{
-	  return new ResponseEntity<AccountManagement>(service.updateCustomerName(account),HttpStatus.OK);
+	  return new ResponseEntity<Customer>(service.updateCustomerName(customer),HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateContact")
+	public ResponseEntity<Customer> updateCustomerContact(@RequestBody Customer customer)
+	{
+	  return new ResponseEntity<Customer>(service.updateCustomerContact(customer),HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateAddress")
+	public ResponseEntity<Customer> updateCustomerAddress(@RequestBody Customer customer)
+	{
+	  return new ResponseEntity<Customer>(service.updateCustomerAddress(customer),HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/id/{accountId}")
@@ -44,8 +56,8 @@ public class AccountRepoController {
 		return service.deleteAccount(accountId);
     }
 	@GetMapping("/all")
-	public ResponseEntity<List<AccountManagement>> getAllAccounts()
+	public ResponseEntity<List<Customer>> getAllAccounts()
 	{
-		return new ResponseEntity<List<AccountManagement>>(service.getAllAccounts(),HttpStatus.OK);
+		return new ResponseEntity<List<Customer>>(service.getAllAccounts(),HttpStatus.OK);
 	}
 }

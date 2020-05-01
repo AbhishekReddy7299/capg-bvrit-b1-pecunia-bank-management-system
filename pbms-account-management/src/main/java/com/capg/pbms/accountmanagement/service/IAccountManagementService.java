@@ -2,22 +2,21 @@ package com.capg.pbms.accountmanagement.service;
 
 import java.util.List;
 
-import com.capg.pbms.accountmanagement.model.AccountManagement;
 import com.capg.pbms.accountmanagement.model.Customer;
 
 public interface IAccountManagementService {
 	
-	 AccountManagement  addAccount(AccountManagement account) ;
+	 Customer  addAccount(Customer customer) ;
 	 	 
-	 AccountManagement  getAccount(long accountId);
+	 Customer  getAccount(long accountId);
 	 
-	 List<AccountManagement> getAllAccounts();
+	 List<Customer> getAllAccounts();
 	 
-	 AccountManagement  updateCustomerName(AccountManagement account);
+	 Customer  updateCustomerName(Customer customer);
 	 
-//	 AccountManagement  updateCustomerContact(AccountManagement account);
-//	 
-//	 AccountManagement  updateCustomerAddress(AccountManagement account);
+	 Customer  updateCustomerContact(Customer customer);
+	 
+	 Customer  updateCustomerAddress(Customer customer);
 	 
 	 boolean deleteAccount(long accountId);
 
