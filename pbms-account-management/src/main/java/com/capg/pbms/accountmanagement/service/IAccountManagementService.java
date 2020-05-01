@@ -12,11 +12,11 @@ public interface IAccountManagementService {
 	 
 	 List<Customer> getAllAccounts();
 	 
-	 Customer  updateCustomerName(Customer customer);
+	 Customer  updateCustomerName(long accountId,Customer customer);
 	 
-	 Customer  updateCustomerContact(Customer customer);
+	 Customer  updateCustomerContact(long accountId,Customer customer);
 	 
-	 Customer  updateCustomerAddress(Customer customer);
+	 Customer  updateCustomerAddress(long accountId,Customer customer);
 	 
 	 boolean deleteAccount(long accountId);
 

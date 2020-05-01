@@ -1,11 +1,23 @@
 package com.capg.pbms.accountmanagement.model;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -32,18 +44,149 @@ public class Customer {
 	private String customerContact;
 	private String customerGender;
 	@DateTimeFormat(pattern="yyyy/MM/dd")
-	private LocalDate CustomerDob;
+	private LocalDate customerDob;
 	
-	@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
-	private Address customerAddress;
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+	private List<Address> customerAddress;
+
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public long getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
+	}
+
+	public String getAccountHolderId() {
+		return accountHolderId;
+	}
+
+	public void setAccountHolderId(String accountHolderId) {
+		this.accountHolderId = accountHolderId;
+	}
+
+	public String getAccountBranchId() {
+		return accountBranchId;
+	}
+
+	public void setAccountBranchId(String accountBranchId) {
+		this.accountBranchId = accountBranchId;
+	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
+	public String getAccountStatus() {
+		return accountStatus;
+	}
+
+	public void setAccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
+	}
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public double getAccountIntrest() {
+		return accountIntrest;
+	}
+
+	public void setAccountIntrest(double accountIntrest) {
+		this.accountIntrest = accountIntrest;
+	}
+
+	public LocalDate getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(LocalDate lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerAadhar() {
+		return customerAadhar;
+	}
+
+	public void setCustomerAadhar(String customerAadhar) {
+		this.customerAadhar = customerAadhar;
+	}
+
+	public String getCustomerPan() {
+		return customerPan;
+	}
+
+	public void setCustomerPan(String customerPan) {
+		this.customerPan = customerPan;
+	}
+
+	public String getCustomerContact() {
+		return customerContact;
+	}
+
+	public void setCustomerContact(String customerContact) {
+		this.customerContact = customerContact;
+	}
+
+	public String getCustomerGender() {
+		return customerGender;
+	}
+
+	public void setCustomerGender(String customerGender) {
+		this.customerGender = customerGender;
+	}
+
+	public LocalDate getCustomerDob() {
+		
+		return customerDob;
+	}
+
+	public void setCustomerDob(LocalDate customerDob) {
+		this.customerDob = customerDob;
+	}
+
+	public List<Address> getCustomerAddress() {
+		return customerAddress;
+	}
+
+	public void setCustomerAddress(List<Address> customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+
 	public Customer(long accountId, String accountHolderId, String accountBranchId, String accountType,
 			String accountStatus, double accountBalance, double accountIntrest, LocalDate lastUpdated,
 			String customerId, String customerName, String customerAadhar, String customerPan, String customerContact,
-			String customerGender, LocalDate customerDob, Address customerAddress) {
+			String customerGender, LocalDate customerDob, List<Address> customerAddress) {
 		super();
 		this.accountId = accountId;
 		this.accountHolderId = accountHolderId;
@@ -59,9 +202,10 @@ public class Customer {
 		this.customerPan = customerPan;
 		this.customerContact = customerContact;
 		this.customerGender = customerGender;
-		CustomerDob = customerDob;
+		this.customerDob = customerDob;
 		this.customerAddress = customerAddress;
 	}
+
 	@Override
 	public String toString() {
 		return "Customer [accountId=" + accountId + ", accountHolderId=" + accountHolderId + ", accountBranchId="
@@ -69,104 +213,9 @@ public class Customer {
 				+ ", accountBalance=" + accountBalance + ", accountIntrest=" + accountIntrest + ", lastUpdated="
 				+ lastUpdated + ", customerId=" + customerId + ", customerName=" + customerName + ", customerAadhar="
 				+ customerAadhar + ", customerPan=" + customerPan + ", customerContact=" + customerContact
-				+ ", customerGender=" + customerGender + ", CustomerDob=" + CustomerDob + ", customerAddress="
+				+ ", customerGender=" + customerGender + ", customerDob=" + customerDob + ", customerAddress="
 				+ customerAddress + "]";
 	}
-	public long getAccountId() {
-		return accountId;
-	}
-	public void setAccountId(long accountId) {
-		this.accountId = accountId;
-	}
-	public String getAccountHolderId() {
-		return accountHolderId;
-	}
-	public void setAccountHolderId(String accountHolderId) {
-		this.accountHolderId = accountHolderId;
-	}
-	public String getAccountBranchId() {
-		return accountBranchId;
-	}
-	public void setAccountBranchId(String accountBranchId) {
-		this.accountBranchId = accountBranchId;
-	}
-	public String getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
-	public String getAccountStatus() {
-		return accountStatus;
-	}
-	public void setAccountStatus(String accountStatus) {
-		this.accountStatus = accountStatus;
-	}
-	public double getAccountBalance() {
-		return accountBalance;
-	}
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
-	public double getAccountIntrest() {
-		return accountIntrest;
-	}
-	public void setAccountIntrest(double accountIntrest) {
-		this.accountIntrest = accountIntrest;
-	}
-	public LocalDate getLastUpdated() {
-		return lastUpdated;
-	}
-	public void setLastUpdated(LocalDate lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-	public String getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
-	public String getCustomerName() {
-		return customerName;
-	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-	public String getCustomerAadhar() {
-		return customerAadhar;
-	}
-	public void setCustomerAadhar(String customerAadhar) {
-		this.customerAadhar = customerAadhar;
-	}
-	public String getCustomerPan() {
-		return customerPan;
-	}
-	public void setCustomerPan(String customerPan) {
-		this.customerPan = customerPan;
-	}
-	public String getCustomerContact() {
-		return customerContact;
-	}
-	public void setCustomerContact(String customerContact) {
-		this.customerContact = customerContact;
-	}
-	public String getCustomerGender() {
-		return customerGender;
-	}
-	public void setCustomerGender(String customerGender) {
-		this.customerGender = customerGender;
-	}
-	public LocalDate getCustomerDob() {
-		return CustomerDob;
-	}
-	public void setCustomerDob(LocalDate customerDob) {
-		CustomerDob = customerDob;
-	}
-	public Address getCustomerAddress() {
-		return customerAddress;
-	}
-	public void setCustomerAddress(Address customerAddress) {
-		this.customerAddress = customerAddress;
-	}
-			 
-}
+
+	 	
+ }

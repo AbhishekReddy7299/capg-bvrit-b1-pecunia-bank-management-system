@@ -24,7 +24,7 @@ public class AccountRepoController {
 	IAccountManagementService service;
 	@PostMapping("/add")
 	public ResponseEntity<Customer> addAccount(@RequestBody Customer customer){
-		return new ResponseEntity<Customer>(customer,HttpStatus.CREATED);
+		return new ResponseEntity<Customer>(service.addAccount(customer),HttpStatus.CREATED);
 	}
 	@GetMapping("/id/{accountId}")
 	public ResponseEntity<Customer> getAccount(@PathVariable("accountId") long accountId)
@@ -32,22 +32,22 @@ public class AccountRepoController {
 		return new ResponseEntity<Customer>(service.getAccount(accountId),HttpStatus.OK); 		
     }
 	
-	@PutMapping("/updateName")
-	public ResponseEntity<Customer> updateCustomerName(@RequestBody Customer customer)
+	@PutMapping("/updateName/id/{accountId}")
+	public ResponseEntity<Customer> updateCustomerName(@PathVariable("accountId") long accountId,@RequestBody Customer customer)
 	{
-	  return new ResponseEntity<Customer>(service.updateCustomerName(customer),HttpStatus.OK);
+	  return new ResponseEntity<Customer>(service.updateCustomerName(accountId,customer),HttpStatus.OK);
 	}
 	
-	@PutMapping("/updateContact")
-	public ResponseEntity<Customer> updateCustomerContact(@RequestBody Customer customer)
+	@PutMapping("/updateContact/id/{accountId}")
+	public ResponseEntity<Customer> updateCustomerContact(@PathVariable("accountId") long accountId,@RequestBody Customer customer)
 	{
-	  return new ResponseEntity<Customer>(service.updateCustomerContact(customer),HttpStatus.OK);
+	  return new ResponseEntity<Customer>(service.updateCustomerContact(accountId,customer),HttpStatus.OK);
 	}
 	
-	@PutMapping("/updateAddress")
-	public ResponseEntity<Customer> updateCustomerAddress(@RequestBody Customer customer)
+	@PutMapping("/updateAddress/id/{accountId}")
+	public ResponseEntity<Customer> updateCustomerAddress(@PathVariable("accountId") long accountId,@RequestBody Customer customer)
 	{
-	  return new ResponseEntity<Customer>(service.updateCustomerAddress(customer),HttpStatus.OK);
+	  return new ResponseEntity<Customer>(service.updateCustomerAddress(accountId,customer),HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/id/{accountId}")

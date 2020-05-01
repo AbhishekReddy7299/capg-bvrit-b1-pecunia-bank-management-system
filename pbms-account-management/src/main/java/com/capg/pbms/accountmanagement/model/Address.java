@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,7 +25,6 @@ public class Address {
 	private String addressState;
 	private String addressCountry;
 	private String addressZipcode;
-	
 	@OneToOne
 	@JoinColumn(name = "accountId")
 	private Customer customer;

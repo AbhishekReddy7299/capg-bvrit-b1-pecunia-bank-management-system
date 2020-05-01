@@ -1,6 +1,8 @@
 package com.capg.pbms.accountmanagement.service;
 
 import java.util.List;
+import java.util.Random;
+
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,16 @@ public class AccountManagementServiceImpl implements IAccountManagementService {
 	@Override
 	@Transactional
 	public Customer addAccount(Customer customer) {
+		customer.setAccountId(Long.parseLong(String.valueOf(Math.abs(new Random().nextLong())).substring(0, 12)));
+		customer.setAccountHolderId(String.valueOf(Math.abs(new Random().nextLong())).substring(0, 12));
+		customer.setAccountBranchId("1");
+		customer.setAccountBalance(0.0);
+		customer.setAccountIntrest(0.0);
+		customer.setCustomerId(String.valueOf(Math.abs(new Random().nextLong())).substring(0,4));
 		if(accountrepo.existsById(customer.getAccountId()))
-			throw new AccountAlreadyExistException("Customer with Id: " +customer.getAccountId()+" is Already Exist");
+		throw new AccountAlreadyExistException("Customer with Id: " +customer.getAccountId()+" is Already Exist");
 		return accountrepo.save(customer);
 	}
-
 	@Override
 	@Transactional
 	public Customer getAccount(long accountId) {
@@ -33,9 +40,10 @@ public class AccountManagementServiceImpl implements IAccountManagementService {
 	    return accountrepo.getOne(accountId);
 	}
 
+	
 	@Override
 	@Transactional
-	public Customer updateCustomerName(Customer customer) {
+	public Customer updateCustomerName(long accountId,Customer customer) {
 		if(!accountrepo.existsById(customer.getAccountId()))
 			
 	throw new AccountNotFoundException("Customer with Id : " +customer.getAccountId()+" Not Found");
@@ -68,7 +76,7 @@ public class AccountManagementServiceImpl implements IAccountManagementService {
 	}
 
 	@Override
-	public Customer updateCustomerContact(Customer customer) {
+	public Customer updateCustomerContact(long accountId,Customer customer) {
 		
 	 if(!accountrepo.existsById(customer.getAccountId()))
 			
@@ -81,7 +89,7 @@ public class AccountManagementServiceImpl implements IAccountManagementService {
 	}
 
 	@Override
-	public Customer updateCustomerAddress(Customer customer) {
+	public Customer updateCustomerAddress(long accountId,Customer customer) {
 		
 		 if(!accountrepo.existsById(customer.getAccountId()))
 				
