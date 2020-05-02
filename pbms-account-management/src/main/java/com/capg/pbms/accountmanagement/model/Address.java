@@ -25,9 +25,7 @@ public class Address {
 	private String addressState;
 	private String addressCountry;
 	private String addressZipcode;
-	@OneToOne
-	@JoinColumn(name = "accountId")
-	private Customer customer;
+
 	
 	public String getAddressId() {
 		return addressId;
