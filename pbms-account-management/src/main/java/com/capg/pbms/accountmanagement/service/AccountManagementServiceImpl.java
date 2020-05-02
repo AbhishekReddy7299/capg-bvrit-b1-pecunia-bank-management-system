@@ -11,11 +11,14 @@ import com.capg.pbms.accountmanagement.exceptions.AccountNotFoundException;
 import com.capg.pbms.accountmanagement.exceptions.EmptyAccountListException;
 import com.capg.pbms.accountmanagement.model.Customer;
 import com.capg.pbms.accountmanagement.repository.IAccountManagementRepo;
+import com.capg.pbms.accountmanagement.repository.IAddressRepo;
 @Service
 public class AccountManagementServiceImpl implements IAccountManagementService {
 	
 	@Autowired(required=false)
 	IAccountManagementRepo accountrepo;
+	@Autowired
+	IAddressRepo addressRepo;
  
 	@Override
 	@Transactional
@@ -28,6 +31,7 @@ public class AccountManagementServiceImpl implements IAccountManagementService {
 		customer.setCustomerId(String.valueOf(Math.abs(new Random().nextLong())).substring(0,4));
 		if(accountrepo.existsById(customer.getAccountId()))
 		throw new AccountAlreadyExistException("Customer with Id: " +customer.getAccountId()+" is Already Exist");
+		addressRepo.save(customer.getCustomerAddress());
 		return accountrepo.save(customer);
 	}
 	@Override

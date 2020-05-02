@@ -46,8 +46,8 @@ public class Customer {
 	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private LocalDate customerDob;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-	private List<Address> customerAddress;
+	@OneToOne
+	private Address customerAddress;
 
 	public Customer() {
 		super();
@@ -175,18 +175,19 @@ public class Customer {
 		this.customerDob = customerDob;
 	}
 
-	public List<Address> getCustomerAddress() {
+	public Address getCustomerAddress() {
 		return customerAddress;
 	}
 
-	public void setCustomerAddress(List<Address> customerAddress) {
+	public void setCustomerAddress(Address customerAddress) {
 		this.customerAddress = customerAddress;
 	}
 
+	
 	public Customer(long accountId, String accountHolderId, String accountBranchId, String accountType,
 			String accountStatus, double accountBalance, double accountIntrest, LocalDate lastUpdated,
 			String customerId, String customerName, String customerAadhar, String customerPan, String customerContact,
-			String customerGender, LocalDate customerDob, List<Address> customerAddress) {
+			String customerGender, LocalDate customerDob, Address customerAddress) {
 		super();
 		this.accountId = accountId;
 		this.accountHolderId = accountHolderId;
